@@ -542,8 +542,9 @@ Ahead, the path forked once more—one route leading deeper into the tangled for
 
 Her breath came out in clouds, and fatigue tugged at her limbs. But she could not afford to hesitate.
 
-[[Head back to the trail and try to make the Pass of Blayn|Run Game][$Health -=5;Stamina -= 5]] &lt;span class=&quot;redtext&quot;&gt;-5 Health -5 Stamina&lt;/span&gt;
-[[Climb a tree][$Stamina -= 10; $Health -= 5]] &lt;span class=&quot;redtext&quot;&gt;-5 Health -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="14" name="Pass of Blayn" tags="3rd-Check" position="2150,1500" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+[[Head back to the trail and try to make the Pass of Blayn|Run Game][$Health -=5; $Stamina -=5]] &lt;span class=&quot;redtext&quot;&gt;-5 Health -5 Stamina&lt;/span&gt;
+[[Climb a tree][$Stamina -=10; $Health -=5]] &lt;span class=&quot;redtext&quot;&gt;-5 Health -10 Stamina&lt;/span&gt;
+</tw-passagedata><tw-passagedata pid="14" name="Pass of Blayn" tags="3rd-Check" position="2150,1500" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
