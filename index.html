@@ -168,7 +168,7 @@ a:hover {color:indigo;
   	text-shadow: none !important;}
 
 #ui-bar {
-  width: 15vw !important;      
+  width: 12vw !important;      
   min-width: 100px !important; 
   max-width: 250px !important; }
 
@@ -446,12 +446,12 @@ Her head started to droop, eyes growing heavy. She almost let them close, but a 
 To her right, a fallen pine tree leaned at an angle, and the snow had drifted thick around it, but under the tangle was a dark hollow. It might be enough to hide her from view and block the wind. To her left, the ground rose into a steep wall of black stone. At the top was a rocky ledge where she could see over the valley. The climb would be tough, and the stone was slick with frost, but from there she might spot whatever was following her. Either way, staying here was not an option.  
 
 
-&lt;&lt;button &quot;&lt;span class=&#39;alt-btn&#39;&gt;Shelter in the tree hollow&lt;/span&gt;&quot;&gt;&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Shelter in the tree hollow&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health += 5&gt;&gt;
   &lt;&lt;set $Stamina += 5&gt;&gt;
   &lt;&lt;goto &quot;Shelter in Tree Hollow&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;greentext&quot;&gt;+5 Health +5 Stamina&lt;/span&gt;
-&lt;&lt;button &quot;&lt;span class=&#39;alt-btn&#39;&gt;Climb the rocky slope&lt;/span&gt;&quot;&gt;&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Climb the rocky slope&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Outcropping&quot;&gt;&gt;
@@ -803,32 +803,37 @@ No time.
 She forced herself upward, every movement jarring her aching hands. Blood warmed her fingertips where the skin had split, and her knees trembled from the effort. Still, she climbed. She had to.
 
 Then—&lt;span class=&quot;bigtext&quot;&gt;c r a c k&lt;/span&gt;
-
 &lt;button id=&quot;toggleSoundBtn&quot;&gt;Play Sound&lt;/button&gt;
 &lt;div id=&quot;rocksoundContainer&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  const rockcontainer = document.getElementById(&quot;rocksoundContainer&quot;);
-  let rockaudio;
-  document.getElementById(&#39;toggleSoundBtn&#39;).addEventListener(&#39;click&#39;, function() {
-    if (!rockaudio) {
-      rockaudio = document.createElement(&quot;audio&quot;);
-      rockaudio.id = &quot;rockslide&quot;;
-      rockaudio.src = &quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/9dc308c968023eebac65c982bf30b0848b78a63f/dropping-rocks-5996.mp3&quot;;
-      rockaudio.loop = false;
-      rockaudio.volume = 1;
-      rockaudio.playbackRate = 0.65;
-      rockcontainer.appendChild(rockaudio);
-      rockaudio.play();
-      this.textContent = &#39;Stop Sound&#39;;
-    } else if (rockaudio.paused) {
-      rockaudio.play();
-      this.textContent = &quot;Stop Sound&quot;;
-    } else {
-      rockaudio.pause();
-      this.textContent = &quot;Play Sound&quot;;
-    }
-  });
-&lt;/script&gt;The rocks started to move.
+&lt;&lt;script&gt;&gt;
+$(document).on(&#39;:passagedisplay&#39;, function() {
+  let btn = document.getElementById(&#39;toggleSoundBtn&#39;);
+  let container = document.getElementById(&#39;rocksoundContainer&#39;);
+  let audio = document.getElementById(&#39;rockslide&#39;);
+  if (btn &amp;&amp; !btn.dataset.bound) {
+    btn.dataset.bound = &quot;true&quot;;
+    btn.addEventListener(&#39;click&#39;, function() {
+      if (!audio) {
+        audio = document.createElement(&quot;audio&quot;);
+        audio.id = &quot;rockslide&quot;;
+        audio.src = &quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/9dc308c968023eebac65c982bf30b0848b78a63f/dropping-rocks-5996.mp3&quot;;
+        audio.loop = false;
+        audio.volume = 1;
+        audio.playbackRate = 0.65;
+        container.appendChild(audio);
+        audio.play();
+        this.textContent = &#39;Stop Sound&#39;;
+      } else if (audio.paused) {
+        audio.play();
+        this.textContent = &quot;Stop Sound&quot;;
+      } else {
+        audio.pause();
+        this.textContent = &quot;Play Sound&quot;;
+      }
+    });
+  }
+});
+&lt;&lt;/script&gt;&gt;The rocks started to move.
 
 &lt;&lt;print $name&gt;&gt;, should she.....
 
@@ -1054,35 +1059,18 @@ How did you go?
 
 &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="30" name="Introduction" tags="3rd-Check" position="1125,125" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;&lt;video removecontrols width=&quot;1000&quot; autoplay loop muted preload=&quot;auto&quot;
-&lt;video src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/ac23c0c81a4ba66ca030f81de36364e3ac855e94/Snow%20Falling_medium.mp4&quot;&gt;&lt;/video&gt; &lt;/div&gt;
-&lt;button id=&quot;startSoundBtn&quot;&gt;Play Sound&lt;/button&gt;
-&lt;div id=&quot;soundContainer&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  const container = document.getElementById(&quot;soundContainer&quot;);
-  let audio;
-  document.getElementById(&#39;startSoundBtn&#39;).addEventListener(&#39;click&#39;, function() {
-    if (!audio) {
-      audio = document.createElement(&quot;audio&quot;);
-      audio.id = &quot;snowfallSound&quot;;
-      audio.src = &quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/9dc308c968023eebac65c982bf30b0848b78a63f/wind-gust-sfx-276250.mp3&quot;;
-      audio.loop = true;
-      audio.volume = 1;
-      audio.playbackRate = 1;
-      container.appendChild(audio);
-      audio.play();
-      this.textContent = &quot;Stop Sound&quot;;
-    } else if (audio.paused) {
-      audio.play();
-      this.textContent = &quot;Stop Sound&quot;;
-    } else {
-      audio.pause();
-      this.textContent = &quot;Play Sound&quot;;
-    }
-  });
-&lt;/script&gt;$name, you are about about to enter the snowy forest in Alara and meet Cathlyne, a woman on the run. She is being hunted and needs your help to survive.
+</tw-passagedata><tw-passagedata pid="30" name="Introduction" tags="3rd-Check" position="1125,125" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;video removecontrols width=&quot;1000&quot; autoplay loop muted preload=&quot;auto&quot;&gt;
+    &lt;source src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/ac23c0c81a4ba66ca030f81de36364e3ac855e94/Snow%20Falling_medium.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;/video&gt;
+&lt;/div&gt;
 
-With each step, the line between safety and sacrifice narrows, and Cathlyne’s fate lies entirely in your hands. You  must rely on your wits and survival skills to make the difficult decisions she needs to in order to stay ahead of the danger.
+&lt;button id=&quot;startSoundBtn&quot;&gt;Play Sound&lt;/button&gt;
+&lt;div id=&quot;windsoundContainer&quot;&gt;&lt;/div&gt;
+
+$name, you are about about to enter the snowy forest in Alara and meet Cathlyne, a woman on the run. She is being hunted and needs your help to survive.
+
+With each step, the line between safety and sacrifice narrows, and Cathlyne’s fate lies entirely in your hands. You must rely on your wits and survival skills to make the difficult decisions she needs to in order to stay ahead of the danger.
 
 Your choices will guide the path to safety. But be careful—a single wrong decision could end her journey. 
 
@@ -1094,6 +1082,37 @@ This is more than a game. It’s a fight for her life. Choose carefully. Act bol
     &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;
 
+&lt;&lt;script&gt;&gt;
+$(document).on(&#39;:passagedisplay&#39;, function() {
+  let btn = document.getElementById(&#39;startSoundBtn&#39;);
+  let container = document.getElementById(&#39;windsoundContainer&#39;);
+  let audio = document.getElementById(&#39;snowfallSound&#39;);
+
+  if (btn &amp;&amp; !btn.dataset.bound) {
+    btn.dataset.bound = &quot;true&quot;;
+
+    btn.addEventListener(&#39;click&#39;, function() {
+      if (!audio) {
+        audio = document.createElement(&quot;audio&quot;);
+        audio.id = &quot;snowfallSound&quot;;
+        audio.src = &quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/9dc308c968023eebac65c982bf30b0848b78a63f/wind-gust-sfx-276250.mp3&quot;;
+        audio.loop = true;
+        audio.volume = 1;
+        audio.playbackRate = 1;
+        container.appendChild(audio);
+        audio.play();
+        this.textContent = &quot;Stop Sound&quot;;
+      } else if (audio.paused) {
+        audio.play();
+        this.textContent = &quot;Stop Sound&quot;;
+      } else {
+        audio.pause();
+        this.textContent = &quot;Play Sound&quot;;
+      }
+    });
+  }
+});
+&lt;&lt;/script&gt;&gt;
 </tw-passagedata><tw-passagedata pid="31" name="Ignore 1" tags="2-Check" position="1375,425" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;Health : $Health / 100 		
 Stamina : $Stamina / 150			
 Health Potion: $Magical_Potion / 3
@@ -1145,38 +1164,7 @@ The forest ahead grew steeper and darker. She&#39;d need another way to protect 
   &lt;&lt;goto &quot;Keep moving, rely on stealth and not force&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-5 Health -5 Stamina&lt;/span&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Remain still, trusting the pine tree to mask your scent1" tags="3rd-Check" position="225,200" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
-Stamina : $Stamina / 150		
-Magical Potion: $Magical_Potion / 3
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img 
-    src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/ab1a4e899b5023484cea3f82d7dedeab40716498/Cathlyne%20Hiding.jpeg&quot; 
-    style=&quot;width: 325px; height: auto;&quot; 
-  /&gt;
-&lt;/div&gt;
-Cathlyne didn&#39;t move, Not a twitch. Not a breath.
-
-The hound&#39;s ears perked up. It sniffed the air, growled… then turned and loped into the trees.
-
-She let out a shaky breath she hadn’t realized she was holding. Safe. For now.
-
-She waited until the forest was quiet again, then moved out of her hiding spot, brushing snow from her knees. Her muscles were stiff, but she had avoided them. Then, as quietly as she could she moved foward. 
-
-As she moved the trees began to get thicker and she could detect a faint scent in the wind. Soon she saw the source of the smell, a house, with lights
-
-$name, should Cathlyne
-
-&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Heads towards the light&lt;/span&gt;&quot;&gt;&gt;
-  &lt;&lt;set $Health -= 10&gt;&gt;
-  &lt;&lt;set $Stamina -= 10&gt;&gt;
-  &lt;&lt;goto &quot;Head towards the lights&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;
-&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Stay hidden and circle around&lt;/span&gt;&quot;&gt;&gt;
-  &lt;&lt;set $Health -= 5&gt;&gt;
-  &lt;&lt;set $Stamina -= 5&gt;&gt;
-  &lt;&lt;goto &quot;Stay hidden and circle around&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; &lt;span class=&quot;greentext&quot;&gt; +5 Health&lt;/span&gt;&lt;span class=&quot;redtext&quot;&gt; -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="34" name="Head towards the lights" tags="3rd-Check" position="425,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="33" name="Head towards the lights" tags="3rd-Check" position="425,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1214,7 +1202,7 @@ Magic? Blood?
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Circle to cabin and continue&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; &lt;span class=&quot;redtext&quot;&gt; -10 Health -10 Stamina&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="35" name="Stay hidden and circle around" tags="2-Check" position="250,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="34" name="Stay hidden and circle around" tags="2-Check" position="250,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1258,7 +1246,7 @@ She melted into the shadows of a nearby tree, heart pounding in her chest, and s
    &lt;&lt;set $Health -= 10&gt;&gt;
    &lt;&lt;set $Stamina -= 20&gt;&gt;
   &lt;&lt;goto &quot;Run 2&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health  -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="36" name="Climb higher while they are distracted" tags="3rd-Check" position="1175,925" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health  -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="35" name="Climb higher while they are distracted" tags="3rd-Check" position="1175,925" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1286,7 +1274,7 @@ Then, just beyond the bend, she spotted it—the jagged outline of old stone wal
   &lt;&lt;set $Health -= 5&gt;&gt;
   &lt;&lt;set $Stamina -= 5&gt;&gt;
   &lt;&lt;goto &quot;Enter the ruins cautiously&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; -10 Health, -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="37" name="Follow the ledge" tags="3rd-Check First-Choice" position="925,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; -10 Health, -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="36" name="Follow the ledge" tags="3rd-Check First-Choice" position="925,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3&lt;div style=&quot;text-align: center;&quot;&gt;
@@ -1308,7 +1296,7 @@ She dropped to her knees and looked out across the forest. The lantern lights we
   &lt;&lt;set $Health -= 5&gt;&gt;
   &lt;&lt;set $Stamina += 5&gt;&gt;
   &lt;&lt;goto &quot;Ending 1&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; -5 Health &lt;/span&gt; &lt;span class = &quot;greentext&quot;&gt; +5 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="38" name="Ending 1" tags="Ending-1 3rd-Check" position="925,1050" size="100,100">&lt;&lt;set $Health -= 50&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; -5 Health &lt;/span&gt; &lt;span class = &quot;greentext&quot;&gt; +5 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="37" name="Ending 1" tags="Ending-1 3rd-Check" position="925,1050" size="100,100">&lt;&lt;set $Health -= 50&gt;&gt;
 &lt;&lt;set $Stamina -= 75&gt;&gt;
 
 &lt;&lt;if $Stamina &lt; 1&gt;&gt;
@@ -1347,9 +1335,10 @@ Pain shot through Cathlyne’s body with every heartbeat. Each wound throbbed, e
 
 The world around her faded to a distant murmur — Her last thought was of how close she had come… and there was nothing.  
 
-&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
-  &lt;&lt;goto &quot;Transition&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="Approach the cabin door a peak inside" tags="3rd-Check" position="425,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start over&lt;/span&gt;&quot;&gt;&gt;
+    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Approach the cabin door a peak inside" tags="3rd-Check" position="425,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health: &lt;&lt;print $Health&gt;&gt; / 100  
 Stamina: &lt;&lt;print $Stamina&gt;&gt; / 150  
 Magical Potion: &lt;&lt;print $Magical_Potion&gt;&gt; / 3
@@ -1401,7 +1390,7 @@ The cabin was empty. A fire had burned low in the hearth. A cup of water sat on 
   &lt;&lt;goto &quot;Climb the ladder and get warm clothing&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;&lt;span class=&quot;greentext&quot;&gt; +5 Health&lt;/span&gt; &lt;span class=&quot;redtext&quot;&gt;-5 Stamina&lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="40" name="Circle to cabin and continue" tags="2-Check" position="625,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="39" name="Circle to cabin and continue" tags="2-Check" position="625,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1426,7 +1415,7 @@ Ahead, a faded wooden post jutted from the snow, its markings nearly erased by t
   &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Wider Path&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="41" name="Wider Path" tags="2-Check" position="1100,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="40" name="Wider Path" tags="2-Check" position="1100,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1452,7 +1441,7 @@ Her breath came out in clouds, and fatigue tugged at her limbs. But she could no
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Take the path deeper into the forest&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="42" name="Do you keep moving past the ruins and follow the path" tags="3rd-Check" position="1275,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="41" name="Do you keep moving past the ruins and follow the path" tags="3rd-Check" position="1275,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1488,7 +1477,7 @@ Her breath formed white clouds in the cold air as she considered which way to go
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Take the path deeper into the forest&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="43" name="Enter the ruins cautiously" tags="2-Check" position="1150,1700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="42" name="Enter the ruins cautiously" tags="2-Check" position="1150,1700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1504,7 +1493,7 @@ She pulled her cloak tighter, bracing herself against the chill. She would rest 
 
 
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="44" name="Climb a tree and wait for them to pass" tags="2-Check" position="300,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="43" name="Climb a tree and wait for them to pass" tags="2-Check" position="300,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1518,7 +1507,7 @@ Once the sounds faded into the distance, Cathlyne let out a slow breath. For now
 
 
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="45" name="Run 2" tags="2-Check" position="175,1075" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="44" name="Run 2" tags="2-Check" position="175,1075" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1534,7 +1523,7 @@ The forest thickened, the shadows deeper, but she hoped the tangled undergrowth 
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 20&gt;&gt;
   &lt;&lt;goto &quot;end by crossbolt&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="46" name="Just take the food in front of you and leave" tags="3rd-Check" position="400,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="45" name="Just take the food in front of you and leave" tags="3rd-Check" position="400,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1554,7 +1543,7 @@ Quiet as a mouse, Cathlyne slipped out the door and back into the freezing night
 She looked back at the cabin, then melted into the shadows of the forest, ready to face whatever lay ahead.
 
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="47" name="Climb the ladder and get warm clothing" tags="3rd-Check Ending-1" position="525,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="46" name="Climb the ladder and get warm clothing" tags="3rd-Check Ending-1" position="525,1225" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1577,49 +1566,7 @@ The fire in the hearth continued to crackle softly.
 &lt;div style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
 &lt;/div&gt;
-&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start again&lt;/span&gt;&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="Game Rules1" tags="" position="1975,25" size="100,100">&lt;&lt;set $Health -= 50&gt;&gt;
-&lt;&lt;set $Stamina -= 75&gt;&gt;
-
-&lt;&lt;if $Stamina &lt; 1&gt;&gt;
-    &lt;&lt;set $Stamina = 0&gt;&gt;
-    &lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $Health &lt; 1&gt;&gt;
-    &lt;&lt;set $Health = 0&gt;&gt;
-    &lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;
-
-Health : $Health / 100&lt;br&gt;
-Stamina : $Stamina / 150&lt;br&gt;
-Magical Potion: $Magical_Potion / 3
-
-Cathlyne dropped beneath the overhang and pressed her back against the frozen rock. It wasn’t warm, but it was still, and the wind couldn’t reach her here. She curled into herself, pulling her cloak tight, trying to calm her shaking hands.
-
-Her breath came in short, silent bursts. She listened.
-
-The baying of the hounds echoed faintly through the trees, growing softer now, more distant. Maybe… they had lost her trail.
-
-Suddenly, a rumble shattered the quiet. Rocks loosened high above, crashing down in a deadly avalanche. 
-
-Chunks of ice and stone slammed around her, pounding the ledge, blocking any chance of escape. 
-
-Pain seared through her limbs as she was struck by falling debris. The cold bit deeper, numbing her body.
-
-She lay still, trapped beneath the weight of the mountain.
-
-The world grew quiet.
-
-&lt;span class=&quot;redtext&quot;&gt;-50 Health&lt;/span&gt;
-&lt;span class=&quot;redtext&quot;&gt;-75 Stamina&lt;/span&gt;
-
-Pain shot through Cathlyne’s body with every heartbeat. Each wound throbbed, each bruise ached. Her vision was blurring. Her hands trembled — not from the cold, but from the blood she was losing. 
-
-The world around her faded to a distant murmur — Her last thought was of how close she had come… and there was nothing.  
-
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="49" name="Forage for something to use as a weapon" tags="2-Check" position="625,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start again&lt;/span&gt;&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Forage for something to use as a weapon" tags="2-Check" position="625,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1644,7 +1591,7 @@ She straightened, her pulse quickening. The ground here pitched upward, a dark r
 &lt;/div&gt;
 
 
-</tw-passagedata><tw-passagedata pid="50" name="Keep moving, rely on stealth and not force" tags="2-Check" position="175,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="48" name="Keep moving, rely on stealth and not force" tags="2-Check" position="175,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1668,7 +1615,7 @@ She slowed, instincts prickling. Whoever was out here in this frozen dark was ei
 
 &lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="51" name="Stay low and watch them" tags="2-Check" position="1025,1700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="49" name="Stay low and watch them" tags="2-Check" position="1025,1700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1683,7 +1630,7 @@ Her heart pounded with the knowledge that she had bought herself a precious mome
 She closed her eyes briefly, willing her tired limbs to hold steady. Ahead, the cold wind whispered through the pines, carrying distant voices and the faintest hint of movement. She had to stay hidden—silent and unseen—until the hunters passed, or until she found a way out of this shadowed trap.
 
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="52" name="Search for a place to rest" tags="2-Check" position="800,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="50" name="Search for a place to rest" tags="2-Check" position="800,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1708,7 +1655,7 @@ It was not much, but here, wrapped in shadow and stone, she had a brief reprieve
 
 &lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="53" name="Head toward the ridge" tags="3rd-Check" position="675,825" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="51" name="Head toward the ridge" tags="3rd-Check" position="675,825" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1733,7 +1680,7 @@ With her heart hammered in her ears, she knew she couldn&#39;t stay exposed like
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Search for a place to rest&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;
-</tw-passagedata><tw-passagedata pid="54" name="Stay low and scout the area" tags="3rd-Check" position="825,600" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="52" name="Stay low and scout the area" tags="3rd-Check" position="825,600" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1758,7 +1705,7 @@ When she reached the edge of the fallen branches, she paused. Up close, the holl
   &lt;&lt;goto &quot;Search for a place to rest&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;&lt;span class=&quot;redtext&quot;&gt; -5 Health -10 Stamina&lt;/span&gt;
 
-</tw-passagedata><tw-passagedata pid="55" name="Knife Throwing" tags="3rd-Check" position="250,550" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="53" name="Knife Throwing" tags="3rd-Check" position="250,550" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1810,7 +1757,7 @@ How did you go?
 
 &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="56" name="Death by Stamina" tags="Ending-1" position="400,200" size="100,100">Health : $Health / 100 		
+</tw-passagedata><tw-passagedata pid="54" name="Death by Stamina" tags="Ending-1" position="400,200" size="100,100">Health : $Health / 100 		
 Stamina : $Stamina / 150			
 Health Potion: $Magical_Potion / 3
 
@@ -1822,7 +1769,9 @@ She thought of the faces she’d never see again, the promises she couldn’t ke
 &lt;div style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
 &lt;/div&gt;
-&lt;&lt;link &quot;Start over&quot;&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Death by Health" tags="Ending-1" position="525,200" size="100,100">Health : $Health / 100 		
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start over&lt;/span&gt;&quot;&gt;&gt;
+    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Death by Health" tags="Ending-1" position="525,200" size="100,100">Health : $Health / 100 		
 Stamina : $Stamina / 150			
 Health Potion: $Magical_Potion / 3
 
@@ -1831,7 +1780,12 @@ Pain shot through Cathlyne’s body with every heartbeat. Each wound throbbed, e
 The world around her faded to a distant murmur — Her last thought was of how close she had come… and there was nothing.  
 &lt;div style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
-&lt;/div&gt;&lt;&lt;link &quot;Start over&quot;&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Keep running on the wider path" tags="First-Choice" position="1225,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start over&lt;/span&gt;&quot;&gt;&gt;
+    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="56" name="Keep running on the wider path" tags="First-Choice" position="1225,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1844,7 +1798,7 @@ She was so focused on escaping, she didn’t notice the shadow slipping through 
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 20&gt;&gt;
   &lt;&lt;goto &quot;end by crossbolt&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="59" name="Try to hide in a nearby thicket" tags="2-Check" position="1500,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -20 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="57" name="Try to hide in a nearby thicket" tags="2-Check" position="1500,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1862,7 +1816,7 @@ With a small smile of grim determination, she reached the second branch and pres
   &lt;&lt;goto &quot;Climb&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -15 Stamina&lt;/span&gt;
 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="60" name="Run Game" tags="3rd-Check" position="1850,1600" size="100,100">
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="58" name="Run Game" tags="3rd-Check" position="1850,1600" size="100,100">
 &lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1912,7 +1866,7 @@ How did you go?
 
 &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="61" name="Start" tags="" position="925,25" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;&lt;video removecontrols width=&quot;1100&quot; autoplay loop muted preload=&quot;auto&quot;
+</tw-passagedata><tw-passagedata pid="59" name="Start" tags="" position="925,25" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;&lt;video removecontrols width=&quot;1100&quot; autoplay loop muted preload=&quot;auto&quot;
 &lt;video src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/86117282011b4d7c4625051ecd1acdbcec5f859a/Fir%20Tree%20Scene.mp4&quot;&gt;&lt;/video&gt; &lt;/div&gt;&lt;&lt;if !$name&gt;&gt;
 Welcome to a harsh wilderness, where the nights are long, the cold unforgiving, and the path ahead uncertain. Before we start, what name will you carry into this journey? Just type your name below and click Enter. otherwise, may I call you Wynter?
 
@@ -1942,8 +1896,8 @@ Hello $name! I hope you enjoy your time playing &lt;span class = &quot;italic&qu
 &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Not yet&lt;/span&gt;&quot;&quot;&gt;&gt;
   &lt;&lt;goto &quot;Not yet&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; 
- &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Game Rules" tags="" position="925,175" size="100,100">&lt;div style=&quot;position: relative; max-width: 1400px; margin: auto;&quot;&gt;
-&lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/d2571b2d3a93ed6837cba18fcc732c5e5c75e702/Snowy%20Spruce.jpg&quot; style=&quot;width: 100%; display: block;&quot;&gt;
+ &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Game Rules" tags="" position="925,175" size="100,100">&lt;div style=&quot;position: relative; max-width: 1400px; margin: auto;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/d2571b2d3a93ed6837cba18fcc732c5e5c75e702/Snowy%20Spruce.jpg&quot; style=&quot;width: 100%; display: block;&quot;&gt;  
   &lt;div style=&quot;
     position: absolute;
     top: 10%;
@@ -1957,46 +1911,47 @@ Hello $name! I hope you enjoy your time playing &lt;span class = &quot;italic&qu
     width: 90%;
     box-sizing: border-box;
     border-radius: 8px;
-  &quot;&gt;    &lt;div style=&quot;text-align: center;&quot;&gt;
-      &lt;span class=&quot;bigboldwhitetext&quot;&gt;HOW TO PLAY&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;ul&gt;
+  &quot;&gt;         &lt;div style=&quot;text-align: center;&quot;&gt;      &lt;span class=&quot;bigboldwhitetext&quot;&gt;HOW TO PLAY&lt;/span&gt;
+    &lt;/div&gt;     &lt;ul&gt;
       &lt;li&gt;Read the story and make choices that will help Cathlyne to survive. Remember, a wrong choice could mean game over. Use the mouse scroll or keyboard arrows to move down the page.&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;greentext&quot;&gt;Green&lt;/span&gt; and &lt;span class=&quot;redtext&quot;&gt;red&lt;/span&gt; text indicate an increase or decrease to Cathlyne&#39;s stat points.&lt;/li&gt;
       &lt;li&gt;Throughout the game you will be given the option to use a potion. Using a potion will give Cathlyne +20 to health and +20 stamina.&lt;/li&gt;
       &lt;li&gt;If stat points reach zero Cathlyne will die and it&#39;s game over. Stats will update at the beginning of each page.&lt;/li&gt;
       &lt;li&gt;Play minigames for added bonuses. Some minigames may require a keyboard.&lt;/li&gt;
-      &lt;li&gt;Make sure your volume is turned on, and you click the button to start background music.&lt;/li&gt;
-    &lt;/ul&gt;    &lt;button id=&quot;startMusicBtn&quot;&gt;Start Background Music&lt;/button&gt;    &lt;script&gt;
-      document.getElementById(&quot;startMusicBtn&quot;).addEventListener(&quot;click&quot;, function() {
-        if (!window.musicTracks || !window.musicTracks[0]) {
-          alert(&quot;Audio not loaded yet, please try again.&quot;);
-          return;
-        }
-
-        const audio = window.musicTracks[0];
-        audio.volume = 0.15;
-        audio.loop = true;
-        audio.play().then(() =&gt; {
-          this.textContent = &quot;Music Started&quot;;
-          this.disabled = true;
-        }).catch((e) =&gt; {
-          console.error(&quot;Play failed:&quot;, e);
-          alert(&quot;Unable to play music. Please check browser settings.&quot;);
-        });
-      });
-    &lt;/script&gt;
-    &lt;ul&gt;
+      &lt;li&gt;Make sure your volume is turned on, and you click the button to start background music.&lt;/li&gt;   &lt;/ul&gt;     &lt;button id=&quot;startMusicBtn&quot;&gt;Start Background Music&lt;/button&gt;
+    &lt;audio id=&quot;bgMusic&quot; src=&quot;path-to-your-background-music.mp3&quot; preload=&quot;auto&quot;&gt;&lt;/audio&gt;     &lt;ul&gt;
       &lt;li&gt;Use the menu bar on the left side to start or stop background music, go back, restart, or save the game.&lt;/li&gt;
       &lt;li&gt;Enjoy!&lt;/li&gt;
-    &lt;/ul&gt;    &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
+    &lt;/ul&gt;        &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
       &lt;&lt;goto &quot;Introduction&quot;&gt;&gt;
-    &lt;&lt;/button&gt;&gt;
-    
-  &lt;/div&gt;
+    &lt;&lt;/button&gt;&gt;      &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="63" name="Transition" tags="" position="800,1300" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="64" name="Remain still, trusting the pine tree to mask your scent" tags="" position="325,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;
+
+&lt;&lt;script&gt;&gt;
+$(document).on(&#39;:passagedisplay&#39;, function (ev) {
+  let btn = document.getElementById(&quot;startMusicBtn&quot;);
+  let audio = document.getElementById(&quot;bgMusic&quot;);
+  
+  if (btn &amp;&amp; audio &amp;&amp; !btn.dataset.bound) { 
+    btn.dataset.bound = &quot;true&quot;;
+    
+    btn.addEventListener(&quot;click&quot;, function () {
+      audio.volume = 0.15;
+      audio.loop = true;
+      audio.play().then(() =&gt; {
+        this.textContent = &quot;Music Started&quot;;
+        this.disabled = true;
+      }).catch((e) =&gt; {
+        console.error(&quot;Play failed:&quot;, e);
+        alert(&quot;Unable to play music. Please check browser settings.&quot;);
+      });
+    });
+  }
+});
+&lt;&lt;/script&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="61" name="Transition" tags="" position="800,1300" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="62" name="Remain still, trusting the pine tree to mask your scent" tags="" position="325,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;
   &lt;&lt;set $Stamina = 0&gt;&gt;
   &lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -2043,7 +1998,7 @@ $name, should Cathlyne…
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt; &lt;span class=&quot;greentext&quot;&gt; +5 Health&lt;/span&gt;&lt;span class=&quot;redtext&quot;&gt; -10 Stamina&lt;/span&gt;
 
 
-</tw-passagedata><tw-passagedata pid="65" name="Linking Passage" tags="" position="1225,800" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="63" name="Linking Passage" tags="" position="1225,800" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
