@@ -389,7 +389,7 @@ Her chest tightened. She needed to keep moving, no matter how exhausted she felt
 &lt;div style=&quot;text-align: center;&quot;&gt;
   &lt;img 
     src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/e3c086d5c842e5d9e88c9a26e33382d1b144fdc0/Footsteps%20in%20the%20Snow.jpeg&quot; 
-    style=&quot;width: 400px; height: auto;&quot; 
+    style=&quot;width: 600px; height: auto;&quot; 
   /&gt;
 &lt;/div&gt;
 $name, Cathlyne is tired and running out of options. What should she do next?
@@ -550,13 +550,27 @@ The wind whipped around her, biting through her coat, swirling snow into her eye
 
 &lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="9" name="Continue" tags="2-Check" position="1550,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="9" name="Continue" tags="3rd-Check" position="1550,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
 
-&lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(180, 190, 225, 0.45); padding: 20px 20px 20px 20px; text-align: justify; line-height: 1.5;&quot;&gt;
-As Cathlyne staggered onward, her breath shallow and muscles screaming with exhaustion, she came to a fork in the snow-laden path. The trail split before her like two diverging fates: one was a narrow, twisting game trail that plunged deeper into the dense, shadowed forest, its undergrowth tangled and uncertain, vanishing almost immediately from sight. The other was a wider, more open path, gently curving northward, flanked by towering pines whose branches groaned softly under the weight of snow, swaying in the biting wind that cut through her thin layers.
+&lt;div style=&quot;position: relative; max-width: 1600px; margin: auto;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/51b265c95d56daf964f8885330ac78e696d5e9ca/Continue.jpeg&quot; style=&quot;width: 100%; display: block;&quot;&gt;  
+  &lt;div style=&quot;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 10px 10px; 
+    background: rgba(0,0,0,0.6); 
+    max-height: 95vh;
+    overflow-y: auto;
+    width: 97%; 
+    box-sizing: border-box;
+    border-radius: 5px;
+  &quot;&gt;   As Cathlyne staggered onward, her breath shallow and muscles screaming with exhaustion, she came to a fork in the snow-laden path. The trail split before her like two diverging fates: one was a narrow, twisting game trail that plunged deeper into the dense, shadowed forest, its undergrowth tangled and uncertain, vanishing almost immediately from sight. The other was a wider, more open path, gently curving northward, flanked by towering pines whose branches groaned softly under the weight of snow, swaying in the biting wind that cut through her thin layers.
 
 For a moment, indecision gripped her like ice, freezing her in place. Which route would give her the best chance of escape? The forest trail offered concealment, its darkness and knotted roots hiding her from prying eyes, but each step promised hidden hazards and the threat of getting lost. The wider path was easier to traverse, but every footfall would echo in the open, leaving her vulnerable and exposed.
 
@@ -566,14 +580,12 @@ Time pressed against her like a living thing. From somewhere behind, the sharp b
   &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 15&gt;&gt;
   &lt;&lt;goto &quot;Take the wider, meandering path&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -15 Stamina&lt;/span&gt;
- &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Take the path deeper into the forest&lt;/span&gt;&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -15 Stamina&lt;/span&gt;  &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Take the path deeper into the forest&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Take the path deeper into the forest&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina&lt;/span&gt;
-
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Take the path deeper into the forest" tags="3rd-Check" position="1550,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Take the path deeper into the forest" tags="3rd-Check" position="1550,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -634,7 +646,7 @@ Panic threatened to overwhelm her, but Cathlyne forced herself to focus. Every s
   &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 15&gt;&gt;
   &lt;&lt;goto &quot;Try to hide in a nearby thicket&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-5 Health -5 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="12" name="continue" tags="2-Check" position="1875,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-5 Health -5 Stamina&lt;/span&gt;</tw-passagedata><tw-passagedata pid="12" name="continue" tags="3rd-Check" position="1875,1400" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -1031,30 +1043,24 @@ Cathlyne pushed her way into the narrow crevice, the stone walls scraping her sh
 
 Use arrows the arrows on your keyboard to guide Cathlyne through the maze. Click the flag to start.&lt;div id=&quot;gameStart&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
        &lt;iframe src=&quot;https://scratch.mit.edu/projects/1195042886/embed&quot; allowtransparency=&quot;true&quot; width=&quot;785&quot; height=&quot;702&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;  &lt;/div&gt;
-How did you go?
-&lt;div id=&quot;choices&quot;&gt;&lt;span id=&quot;choiceSuccess&quot;&gt;&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;I finished it!&lt;/span&gt;&quot;&gt;&gt;
-			&lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
-			&lt;&lt;set $gameSuccess = true&gt;&gt;
-			&lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;
-			&lt;&lt;replace &quot;#result&quot;&gt;&gt;She felt a warm glow in her hand where a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
-					&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
-					 &lt;&lt;goto &quot;Run&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-			&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;/button&gt;&gt;
-	&lt;/span&gt;	&lt;span id=&quot;choiceFail&quot;&gt;&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;I didn&#39;t.....&lt;/span&gt;&quot;&gt;&gt;&lt;&lt;replace &quot;#choiceSuccess&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
-			&lt;&lt;set $gameSuccess = false&gt;&gt;
-			&lt;&lt;replace &quot;#result&quot;&gt;&gt;The maze bested you this time. Your head is spinning.
-							&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
-					&lt;&lt;goto &quot;Run Game&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-				&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
-				&lt;&lt;goto &quot;Run&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-			&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;/button&gt;&gt;
-	&lt;/span&gt;
-
+Congratulations on finishing the maze!  Do you want to&lt;div id=&quot;choices&quot;&gt;
+    &lt;span id=&quot;choiceSuccess&quot;&gt;        &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Keep going&lt;/span&gt;&quot;&gt;&gt;
+            &lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;set $gameSuccess = true&gt;&gt;
+            &lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;
+            &lt;&lt;replace &quot;#result&quot;&gt;&gt; Just as Cathlyne was preparing to move, she felt a warm glow in her hand, where a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
+                    
+                    &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
+                    &lt;&lt;goto &quot;Run&quot;&gt;&gt;
+                &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+    &lt;/span&gt; &lt;span id=&quot;choiceFail&quot;&gt; &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
+            &lt;&lt;replace &quot;#choiceSuccess&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;set $gameSuccess = false&gt;&gt;
+            &lt;&lt;goto &quot;Potion Maze&quot;&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+    &lt;/span&gt;
 &lt;/div&gt;
 
 &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
@@ -1064,10 +1070,8 @@ How did you go?
     &lt;source src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/ac23c0c81a4ba66ca030f81de36364e3ac855e94/Snow%20Falling_medium.mp4&quot; type=&quot;video/mp4&quot;&gt;
   &lt;/video&gt;
 &lt;/div&gt;
-
 &lt;button id=&quot;startSoundBtn&quot;&gt;Play Sound&lt;/button&gt;
 &lt;div id=&quot;windsoundContainer&quot;&gt;&lt;/div&gt;
-
 $name, you are about about to enter the snowy forest in Alara and meet Cathlyne, a woman on the run. She is being hunted and needs your help to survive.
 
 With each step, the line between safety and sacrifice narrows, and Cathlyne’s fate lies entirely in your hands. You must rely on your wits and survival skills to make the difficult decisions she needs to in order to stay ahead of the danger.
@@ -1113,12 +1117,10 @@ $(document).on(&#39;:passagedisplay&#39;, function() {
   }
 });
 &lt;&lt;/script&gt;&gt;
-</tw-passagedata><tw-passagedata pid="31" name="Ignore 1" tags="2-Check" position="1375,425" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;Health : $Health / 100 		
+</tw-passagedata><tw-passagedata pid="31" name="Ignore 1" tags="3rd-Check" position="1375,425" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;Health : $Health / 100 		
 Stamina : $Stamina / 150			
-Health Potion: $Magical_Potion / 3
-
-&lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(96, 130, 182, 0.25); padding: 20px; text-align: justify; line-height: 1.5;&quot;&gt;
-She knew better.
+Health Potion: $Magical_Potion / 3&lt;div style=&quot;text-align: center;&quot;&gt;  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/2bd56519b1455958805227974fbeef605eb470e0/AdobeStock_1612492576.jpeg&quot; alt=&quot;Description&quot; style=&quot;max-width: 100%; height: auto;&quot; /&gt;
+&lt;/div&gt;&lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(96, 130, 182, 0.25); padding: 20px; text-align: justify; line-height: 1.5;&quot;&gt;She knew better.
 
 She pushed herself up with a groan, the cold biting through her gloves. Her breath puffed out in front of her, a tiny cloud that vanished almost as soon as it appeared. Just like she would, if she didn’t keep moving.
 
@@ -1130,26 +1132,31 @@ Some part of her knew collapse was near. Her strength was gone. Her fingers had 
 
 There is no choice. Only forward. 
 
-&lt;/div&gt;
 &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;No&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina &lt;/span&gt; </tw-passagedata><tw-passagedata pid="32" name="Throw last dagger" tags="2-Check" position="475,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-15 Health -10 Stamina &lt;/span&gt; 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Throw last dagger" tags="3rd-Check" position="475,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
 
-&lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(120, 120, 180, 0.1); padding: 20px 20px 20px 20px; text-align: justify; line-height: 1.5;&quot;&gt;
-Bolstered by her memories, Cathlyne&#39;s hand moved slowly to her belt. She grabbed her last dagger, the one with the bone handle. Taking a deep breath, she steadied herself. Then with a flick of her wrist, she threw it hard into the trees behind the hound.
+ &lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(120, 120, 140, 0.3); padding: 20px 20px 20px 20px; text-align: justify; line-height: 1.5;&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;video autoplay loop muted preload=&quot;auto&quot; style=&quot;width: 100%; filter: grayscale(60%) brightness(90%);&quot;&gt;
+    &lt;source src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/51b265c95d56daf964f8885330ac78e696d5e9ca/Throwing%20Dagger%20Preview.mov&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;/video&gt;
+&lt;/div&gt;
 
-It clattered through the branches, and then struck something solid.
+Bolstered by her memories and the additional potion, Cathlyne&#39;s hand moved slowly to her belt. She grabbed her last dagger, the one with the bone handle. Taking a deep breath, she steadied herself. Then with a flick of her wrist, she threw it hard into the trees behind the hound.
 
-The hound spun around and dashed toward the sound..
+It clattered noisily through the tangled branches, ricocheting off bark and snapping twigs before striking something solid with a sharp thud.
 
-Cathlyne didn&#39;t wait, She used the moment to roll fromher hiding spot and disappear into the shadows.
+The hound spun around abruptly, its ears perked and teeth bared, and dashed toward the source of the sound with alarming speed.
 
-She had escaped, but her dagger was gone.
+Cathlyne didn&#39;t wait to see what would happen. She seized the moment, rolling from her hiding spot and melting into the shadows, her heart pounding in her chest.
+
+She had escaped, but her dagger was gone, eaving her feeling exposed and vulnerable.
 
 The forest ahead grew steeper and darker. She&#39;d need another way to protect herself if the hounds came back.
 
@@ -1723,34 +1730,27 @@ The scent of pine, the weight of the handle, the steadiness in her grip — she 
 Use your mouse to release knives making sure you don&#39;t hit any others to complete each level. To start, click the green flag, then click the &quot;Start&quot; button.
 &lt;div style=&quot;text-align: center;&quot;&gt;&lt;iframe src=&quot;https://scratch.mit.edu/projects/1205443777/embed&quot; allowtransparency=&quot;true&quot; width=&quot;800&quot; height=&quot;700&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
-How did you go?
-&lt;div id=&quot;choices&quot;&gt;&lt;span id=&quot;choiceSuccess&quot;&gt;&lt;&lt;button &quot;I finished it!&quot;&gt;&gt;&lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;set $gameSuccess = true&gt;&gt;&lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;&lt;&lt;replace &quot;#result&quot;&gt;&gt;She felt a warm glow in her hand where a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
-        
-          Cathlyne lowered her arm, breath misting in the cold.
-          
-          The muffled growl of the hounds brought her sharply back to the present.
-          
-          It was time.     
-          
+Are you ready to continue?
+&lt;div id=&quot;choices&quot;&gt;&lt;span id=&quot;choiceSuccess&quot;&gt;&lt;&lt;button &quot;Yes&quot;&gt;&gt;&lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;set $gameSuccess = true&gt;&gt;&lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;&lt;&lt;replace &quot;#result&quot;&gt;&gt;  Cathlyne lowered her arm, breath misting in the cold.
+
+The muffled growl of the hounds brought her sharply back to the present.
+
+It was time.
+
+Just before she moved, she saw a faint shimmer at the back of the hollow. Hesitantly, she reached out. A warm glow spread through her hand as a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
+                   
          &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
           &lt;&lt;goto &quot;Throw last dagger&quot;&gt;&gt;
         &lt;&lt;/button&gt;&gt;
       &lt;&lt;/replace&gt;&gt;
     &lt;&lt;/button&gt;&gt;
-    &lt;/span&gt;
-  	&lt;span id=&quot;choiceFail&quot;&gt;
-		&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;I didn&#39;t........&lt;/span&gt;&quot;&gt;&gt;
+    &lt;/span&gt; 	&lt;span id=&quot;choiceFail&quot;&gt;		&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Not yet&lt;/span&gt;&quot;&gt;&gt;
 			&lt;&lt;replace &quot;#choiceSuccess&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
 			&lt;&lt;set $gameSuccess = false&gt;&gt;
-			&lt;&lt;replace &quot;#result&quot;&gt;&gt;
-				Better luck next time.
-					  &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
+			&lt;&lt;replace &quot;#result&quot;&gt;&gt; &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
 					&lt;&lt;goto &quot;Knife Throwing&quot;&gt;&gt;
 				&lt;&lt;/button&gt;&gt;
-                	&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
-					&lt;&lt;goto &quot;Knife Throwing&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-			&lt;&lt;/replace&gt;&gt;
+           	&lt;&lt;/replace&gt;&gt;
 		&lt;&lt;/button&gt;&gt;
 	&lt;/span&gt;
 &lt;/div&gt;
@@ -1832,40 +1832,31 @@ Click the green flag to load then click to begin the game, and the red stop butt
 
 &lt;div style=&quot;text-align: center;&quot;&gt;&lt;iframe src=&quot;https://scratch.mit.edu/projects/1205459414/embed&quot; allowtransparency=&quot;true&quot; width=&quot;785&quot; height=&quot;702&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
-She slowed only when the obstacles thinned, her breath clouding the air. The forest closed around her once more, dark and silent.
+She slowed only when the obstacles thinned, her breath clouding the cold air. The forest pressed close around her, dark and silent.&lt;div id=&quot;choices&quot;&gt;
+    &lt;span id=&quot;choiceSuccess&quot;&gt;        &lt;&lt;button &quot;&lt;span class=&#39;,alt-btn&#39;&gt;Keep going&lt;/span&gt;&quot;&gt;&gt;
+            &lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;set $gameSuccess = true&gt;&gt;
+            &lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;
+            &lt;&lt;replace &quot;#result&quot;&gt;&gt;               Then, just as Cathlyne summoned the strength to move forward, a warm glow appeared in her hand, where a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
 
-How did you go?
-&lt;div id=&quot;choices&quot;&gt;&lt;span id=&quot;choiceSuccess&quot;&gt;&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;I finished it!&lt;/span&gt;&quot;&gt;&gt;
-			&lt;&lt;replace &quot;#choiceFail&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
-			&lt;&lt;set $gameSuccess = true&gt;&gt;
-			&lt;&lt;set $Magical_Potion = Math.min(3, ($Magical_Potion || 0) + 1)&gt;&gt;
-			&lt;&lt;replace &quot;#result&quot;&gt;&gt;She felt a warm glow in her hand where a magical potion shimmered into existence. She now has &lt;&lt;print $Magical_Potion&gt;&gt; magical potion(s).
-		
-				Feeling tired, but triumphant, she slowed her pace as her breath clouded the air.  
-				The forest closed around her once more, dark and silent.
-	
-			&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
-					&lt;&lt;goto &quot;Head back to the trail and try to make the Pass of Blayn&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-			&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;/button&gt;&gt;
-	&lt;/span&gt;	&lt;span id=&quot;choiceFail&quot;&gt;&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;I didn&#39;t.....&lt;/span&gt;&quot;&gt;&gt;&lt;&lt;replace &quot;#choiceSuccess&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
-			&lt;&lt;set $gameSuccess = false&gt;&gt;
-			&lt;&lt;replace &quot;#result&quot;&gt;&gt;Better luck next time.
-							&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
-					&lt;&lt;goto &quot;Run Game&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-				&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
-					&lt;&lt;goto &quot;Head back to the trail and try to make the Pass of Blayn&quot;&gt;&gt;
-				&lt;&lt;/button&gt;&gt;
-			&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;/button&gt;&gt;
-	&lt;/span&gt;
-
+                Tired but triumphant, sCathlyne continued through the forest, every step was careful, the shadows stretching around her like a silent shroud.
+                
+                &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
+                    &lt;&lt;goto &quot;Head back to the trail and try to make the Pass of Blayn&quot;&gt;&gt;
+                &lt;&lt;/button&gt;&gt;
+            &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;/button&gt;&gt;    &lt;/span&gt;    &lt;span id=&quot;choiceFail&quot;&gt;
+        &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Try again&lt;/span&gt;&quot;&gt;&gt;
+            &lt;&lt;replace &quot;#choiceSuccess&quot;&gt;&gt;&lt;span&gt;&lt;/span&gt;&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;set $gameSuccess = false&gt;&gt;
+            &lt;&lt;goto &quot;Run Game&quot;&gt;&gt;
+        &lt;&lt;/button&gt;&gt;
+    &lt;/span&gt;
 &lt;/div&gt;
 
 &lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
 
+		
 </tw-passagedata><tw-passagedata pid="59" name="Start" tags="" position="925,25" size="100,100">&lt;div style=&quot;text-align: center;&quot;&gt;&lt;video removecontrols width=&quot;1100&quot; autoplay loop muted preload=&quot;auto&quot;
 &lt;video src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/86117282011b4d7c4625051ecd1acdbcec5f859a/Fir%20Tree%20Scene.mp4&quot;&gt;&lt;/video&gt; &lt;/div&gt;&lt;&lt;if !$name&gt;&gt;
 Welcome to a harsh wilderness, where the nights are long, the cold unforgiving, and the path ahead uncertain. Before we start, what name will you carry into this journey? Just type your name below and click Enter. otherwise, may I call you Wynter?
@@ -1947,7 +1938,7 @@ $(document).on(&#39;:passagedisplay&#39;, function (ev) {
 });
 &lt;&lt;/script&gt;&gt;
 </tw-passagedata><tw-passagedata pid="61" name="Transition" tags="" position="800,1300" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="62" name="Remain still, trusting the pine tree to mask your scent" tags="" position="325,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;
+&lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="62" name="Remain still, trusting the pine tree to mask your scent" tags="3rd-Check" position="325,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;
   &lt;&lt;set $Stamina = 0&gt;&gt;
   &lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
