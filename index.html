@@ -363,7 +363,7 @@ Maybe now was the time to use a potion?&lt;span id=&quot;potionLink&quot;&gt;
 
 Her skin prickled. The fading light turned everything strange. Maybe it was just her &lt;span class=&quot;italic&quot;&gt;Imagination&lt;/span&gt;, the alternative, &lt;span class=&quot;italic&quot;&gt;real monsters&lt;/span&gt; was far worse to consider.
 
-&lt;&lt;button &quot;Investigate rock crevices&quot; &quot;start-btn&quot;&gt;&gt;
+ &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Investigate rock crevices&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 5&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Potion Maze&quot;&gt;&gt;
@@ -684,12 +684,12 @@ Ahead, the path forked once more—one route leading deeper into the tangled for
 
 Her breath came out in clouds, and fatigue tugged at her limbs. But she could not afford to hesitate.
 
-&lt;&lt;button &quot;Head back to the trail and try to make the Pass of Blayn&quot; &quot;start-btn&quot;&gt;&gt;
+ &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Head back to the trail and try to make the Pass of Blayn&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Run Game&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;
-&lt;&lt;button &quot;Climb a tree&quot; &quot;start-btn&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Climb a tree&lt;/span&gt;&quot;&gt;&gt; 
   &lt;&lt;set $Health -= 5&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Climb a tree&quot;&gt;&gt;
@@ -711,8 +711,14 @@ Every crunch of snow beneath her boots made her pulse quicken. Were the hounds n
 Still, she would not stop. She would keep moving. Stay alert. Keep fighting.
 
 
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="end by crossbolt" tags="Ending-1" position="425,1525" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="end by crossbolt" tags="Ending-1" position="425,1525" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health : $Health / 100 		
 Stamina : $Stamina / 150		
 Magical Potion: $Magical_Potion / 3
@@ -744,7 +750,7 @@ She briefly thought if she would have the health and stamin for this. Maybe she 
 &lt;/span&gt; &lt;div id=&quot;potionResult&quot;&gt;&lt;/div&gt;
 For better or worse it was what it was. Cathlyne leapt toward the nearest tree, her fingers gripping the rough bark, her mind flickered to the memory of her husband’s warm smile and the laughter of her two daughters playing in the palace gardens. She could almost hear their voices, feel the sunshine on her face. Those memories gave her a sudden rush of strength and hope.
 
-&lt;&lt;button &quot;Climb&quot; &quot;start-btn&quot;&gt;&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Climb&lt;/span&gt;&quot;&gt;&gt;
   &lt;&lt;set $Health -= 15&gt;&gt;
   &lt;&lt;set $Stamina -= 15&gt;&gt;
   &lt;&lt;goto &quot;Climb&quot;&gt;&gt;
@@ -1319,6 +1325,7 @@ Health : $Health / 100&lt;br&gt;
 Stamina : $Stamina / 150&lt;br&gt;
 Magical Potion: $Magical_Potion / 3
 
+&lt;div style=&quot;position: relative; max-width: 800px; margin: auto; background-color: rgba(185, 201, 230, 0.25); padding: 20px 20px 20px 20px; text-align: justify; line-height: 1.5;&quot;&gt;
 Cathlyne dropped beneath the overhang and pressed her back against the frozen rock. It wasn’t warm, but it was still, and the wind couldn’t reach her here. She curled into herself, pulling her cloak tight, trying to calm her shaking hands.
 
 Her breath came in short, silent bursts. She listened.
@@ -1342,10 +1349,13 @@ Pain shot through Cathlyne’s body with every heartbeat. Each wound throbbed, e
 
 The world around her faded to a distant murmur — Her last thought was of how close she had come… and there was nothing.  
 
-&lt;/div&gt;
-&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start over&lt;/span&gt;&quot;&gt;&gt;
-    &lt;&lt;goto &quot;Start&quot;&gt;&gt;
-&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Approach the cabin door a peak inside" tags="3rd-Check" position="425,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="38" name="Approach the cabin door a peak inside" tags="3rd-Check" position="425,1050" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; Health: &lt;&lt;print $Health&gt;&gt; / 100  
 Stamina: &lt;&lt;print $Stamina&gt;&gt; / 150  
 Magical Potion: &lt;&lt;print $Magical_Potion&gt;&gt; / 3
@@ -1499,8 +1509,15 @@ For a heartbeat, the ruins felt like a fragile refuge, a shield from the cold wi
 She pulled her cloak tighter, bracing herself against the chill. She would rest here — but only for a moment. The forest beyond was still dark and dangerous, and the hunters were never far behind.
 
 
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="43" name="Climb a tree and wait for them to pass" tags="2-Check" position="300,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Climb a tree and wait for them to pass" tags="2-Check" position="300,1675" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1513,8 +1530,14 @@ Voices came into sharper focus—gruff commands, the crunch of boots in the snow
 Once the sounds faded into the distance, Cathlyne let out a slow breath. For now, she was safe—but she knew this brief respite might not last long.
 
 
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="44" name="Run 2" tags="2-Check" position="175,1075" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="Run 2" tags="2-Check" position="175,1075" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1619,9 +1642,14 @@ Her pulse quickened. Fire meant people. People meant danger.
 She slowed, instincts prickling. Whoever was out here in this frozen dark was either hunting… or hiding.
 
 
-
 &lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 </tw-passagedata><tw-passagedata pid="49" name="Stay low and watch them" tags="2-Check" position="1025,1700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
@@ -1637,7 +1665,14 @@ Her heart pounded with the knowledge that she had bought herself a precious mome
 She closed her eyes briefly, willing her tired limbs to hold steady. Ahead, the cold wind whispered through the pines, carrying distant voices and the faintest hint of movement. She had to stay hidden—silent and unseen—until the hunters passed, or until she found a way out of this shadowed trap.
 
 
-&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;</tw-passagedata><tw-passagedata pid="50" name="Search for a place to rest" tags="2-Check" position="800,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="Search for a place to rest" tags="2-Check" position="800,900" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
 Stamina : $Stamina / 150		
@@ -1662,6 +1697,12 @@ It was not much, but here, wrapped in shadow and stone, she had a brief reprieve
 
 &lt;span class = &quot;headingtext&quot;&gt;THIS BRANCH IS STILL UNDER DEVELOPMENT. PLEASE SELECT BACK AND CONTINUE YOUR STORY.&lt;/span&gt;
 
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/680b8e407f8f16d4a8d26de8264ae01b5237c18e/Stylised%20Wind.png&quot; alt=&quot;Description&quot; style=&quot;opacity: 0.36; max-width: 35%; height: auto;&quot; /&gt;
+&lt;/div&gt;
+&lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Start Over&lt;/span&gt;&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Games Start&quot;&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 </tw-passagedata><tw-passagedata pid="51" name="Head toward the ridge" tags="3rd-Check" position="675,825" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; 
 Health : $Health / 100 		
@@ -1673,17 +1714,19 @@ Her boots slipped on loose stone, and each breath burned in her chest, but Cathl
 &lt;div style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/a482ea655aecfff9e09ebf7e4a856fade2717c6b/Snow%20ledge.png&quot; 
   style=&quot;width: 650px; height: auto;&quot; 
 /&gt;&lt;/div&gt;
-From here, she could see the forest stretched out below — black, restless, and full of unseen motion. But up here… she had a moment to breathe. In the moment of quiet she took to opportunity to look at her stats and winced, Maybe now was the time to use a potion?&lt;span id=&quot;potionLink&quot;&gt;
-	&lt;&lt;button &quot;Use a magical potion&quot;&gt;&gt;
-		&lt;&lt;replace &quot;#potionLink&quot;&gt;&gt;&#39;&#39;&lt;&lt;/replace&gt;&gt;
-		&lt;&lt;usePotion&gt;&gt;
-	&lt;&lt;/link&gt;&gt;&lt;/span&gt; &lt;div id=&quot;potionResult&quot;&gt;&lt;/div&gt;&lt;&lt;/button&gt;&gt;
+From here, she could see the forest stretched out below — black, restless, and full of unseen motion. But up here… she had a moment to breathe. In the moment of quiet she took to opportunity to look at her stats and winced, Maybe now was the time to use a potion?&lt;span id=&quot;potionLink&quot;&gt;    &lt;&lt;button &quot;Use a magical potion&quot;&gt;&gt;
+        &lt;&lt;replace &quot;#potionLink&quot;&gt;&gt;
+        &lt;&lt;/replace&gt;&gt;
+        &lt;&lt;usePotion&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+&lt;/span&gt;
+&lt;div id=&quot;potionResult&quot;&gt;&lt;/div&gt;
  The hunters were still moving below, their shadows flitting between the trees, their hounds weaving like streaks of white through the undergrowth.
 
 With her heart hammered in her ears, she knew she couldn&#39;t stay exposed like this. She scanned the ridge, eyes searching for a hollow, an overhang, anything that could give her a moment’s shelter. Somewhere to gather her strength. Somewhere to decide her next move.
 
 &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Search for a place to rest&lt;/span&gt;&quot;&gt;&gt;
-  &lt;&lt;set $Health -= 10&gt;
+  &lt;&lt;set $Health -= 10&gt;&gt;
   &lt;&lt;set $Stamina -= 10&gt;&gt;
   &lt;&lt;goto &quot;Search for a place to rest&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt; &lt;span class=&quot;redtext&quot;&gt;-10 Health -10 Stamina&lt;/span&gt;
