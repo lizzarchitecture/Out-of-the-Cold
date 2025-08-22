@@ -1900,34 +1900,31 @@ Hello $name! I hope you enjoy your time playing &lt;span class = &quot;italic&qu
   &lt;img src=&quot;https://github.com/lizzarchitecture/Out-of-the-Cold/raw/d2571b2d3a93ed6837cba18fcc732c5e5c75e702/Snowy%20Spruce.jpg&quot; style=&quot;width: 100%; display: block;&quot;&gt;  
   &lt;div style=&quot;
     position: absolute;
-    top: 10%;
+    top: 4.5%;
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    padding: 20px 30px;
-    background: rgba(0,0,0,0.7);
-    max-height: 69vh;
+    padding: 15px 15px; 
+    background: rgba(0,0,0,0.7); 
+    max-height: 95vh;
     overflow-y: auto;
-    width: 90%;
+    width: 95%; 
     box-sizing: border-box;
-    border-radius: 8px;
-  &quot;&gt;         &lt;div style=&quot;text-align: center;&quot;&gt;      &lt;span class=&quot;bigboldwhitetext&quot;&gt;HOW TO PLAY&lt;/span&gt;
-    &lt;/div&gt;     &lt;ul&gt;
-      &lt;li&gt;Read the story and make choices that will help Cathlyne to survive. Remember, a wrong choice could mean game over. Use the mouse scroll or keyboard arrows to move down the page.&lt;/li&gt;
+    border-radius: 10px;
+  &quot;&gt;    &lt;div style=&quot;text-align: center;&quot;&gt;      &lt;span class=&quot;bigboldwhitetext&quot;&gt;HOW TO PLAY&lt;/span&gt;
+    &lt;/div&gt;    &lt;ul&gt;      &lt;li&gt;Read the story and make choices that will help Cathlyne to survive. Remember, a wrong choice could mean game over. Use the mouse scroll or keyboard arrows to move down the page.&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;greentext&quot;&gt;Green&lt;/span&gt; and &lt;span class=&quot;redtext&quot;&gt;red&lt;/span&gt; text indicate an increase or decrease to Cathlyne&#39;s stat points.&lt;/li&gt;
       &lt;li&gt;Throughout the game you will be given the option to use a potion. Using a potion will give Cathlyne +20 to health and +20 stamina.&lt;/li&gt;
       &lt;li&gt;If stat points reach zero Cathlyne will die and it&#39;s game over. Stats will update at the beginning of each page.&lt;/li&gt;
       &lt;li&gt;Play minigames for added bonuses. Some minigames may require a keyboard.&lt;/li&gt;
-      &lt;li&gt;Make sure your volume is turned on, and you click the button to start background music.&lt;/li&gt;   &lt;/ul&gt;     &lt;button id=&quot;startMusicBtn&quot;&gt;Start Background Music&lt;/button&gt;
-    &lt;audio id=&quot;bgMusic&quot; src=&quot;path-to-your-background-music.mp3&quot; preload=&quot;auto&quot;&gt;&lt;/audio&gt;     &lt;ul&gt;
-      &lt;li&gt;Use the menu bar on the left side to start or stop background music, go back, restart, or save the game.&lt;/li&gt;
+      &lt;li&gt;Make sure your volume is turned on, and you click the button to start background music.&lt;/li&gt;    &lt;/ul&gt;    &lt;button id=&quot;startMusicBtn&quot;&gt;Start Background Music&lt;/button&gt;    &lt;audio id=&quot;bgMusic&quot; src=&quot;path-to-your-background-music.mp3&quot; preload=&quot;auto&quot;&gt;&lt;/audio&gt;
+    &lt;ul&gt;      &lt;li&gt;Use the menu bar on the left side to start or stop background music, go back, restart, or save the game.&lt;/li&gt;
       &lt;li&gt;Enjoy!&lt;/li&gt;
-    &lt;/ul&gt;        &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
+    &lt;/ul&gt;    &lt;&lt;button &quot;&lt;span class=&#39;.alt-btn&#39;&gt;Continue&lt;/span&gt;&quot;&gt;&gt;
       &lt;&lt;goto &quot;Introduction&quot;&gt;&gt;
-    &lt;&lt;/button&gt;&gt;      &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;&lt;script&gt;&gt;
+    &lt;&lt;/button&gt;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;&lt;script&gt;&gt;
 $(document).on(&#39;:passagedisplay&#39;, function (ev) {
   let btn = document.getElementById(&quot;startMusicBtn&quot;);
   let audio = document.getElementById(&quot;bgMusic&quot;);
@@ -1949,7 +1946,6 @@ $(document).on(&#39;:passagedisplay&#39;, function (ev) {
   }
 });
 &lt;&lt;/script&gt;&gt;
-
 </tw-passagedata><tw-passagedata pid="61" name="Transition" tags="" position="800,1300" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;&lt;&lt;set $Stamina to 0&gt;&gt;&lt;&lt;goto &quot;Death by Stamina&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $Health &lt; 1&gt;&gt;&lt;&lt;set $Health to 0&gt;&gt;&lt;&lt;goto &quot;Death by Health&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; </tw-passagedata><tw-passagedata pid="62" name="Remain still, trusting the pine tree to mask your scent" tags="" position="325,700" size="100,100">&lt;&lt;if $Stamina &lt; 1&gt;&gt;
   &lt;&lt;set $Stamina = 0&gt;&gt;
